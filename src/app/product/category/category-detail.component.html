@@ -1,0 +1,15 @@
+
+<div *ngIf="category">
+	<h1>{{ category.title }}</h1>
+	<div [innerHtml]="category.description"></div>
+</div>
+
+<ul *ngIf="products">
+	<li *ngFor="let product of products">
+		<a routerLink="/products/{{ product.id }}">{{ product.title }}</a>
+	</li>
+</ul>
+
+<p *ngIf="products !== null && products.length === 0">
+	No products here
+</p>

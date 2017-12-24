@@ -1,0 +1,11 @@
+<p>
+  category works!
+</p>
+
+<ul *ngIf="categories">
+	<li *ngFor="let category of categories">
+		<a href="" routerLink="./{{ category.id }}">{{ category.title }}</a>
+	</li>
+</ul>
+
+<router-outlet></router-outlet>

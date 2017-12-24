@@ -1,0 +1,8 @@
+<div *ngIf="product">
+	<h1>{{ product.title }}</h1>
+
+	<div class="description">
+		<p>{{ product.description }}</p>
+		<span class="price-tag">{{ product.price | currency:'EUR' }}</span>
+	</div>
+</div>
