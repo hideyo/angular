@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -12,16 +13,17 @@ export class CategoryComponent implements OnInit {
   public categories: any[] = [];
 
   constructor(
+    private route: ActivatedRoute,
     private http: HttpClient
   ) { }
 
   ngOnInit() {
-    this.getAll();
+    this.getAllCategories();
   }
 
-  getAll() {
+  getAllCategories() {
     this.http.get('/api/categories')
-      .subscribe((categories:any[]) => this.categories = categories);
+      .subscribe((result:any) => this.categories = result.data);
   }
 
 }

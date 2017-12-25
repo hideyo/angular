@@ -22,7 +22,13 @@ export class CategoryDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe(
-        params => this.find(+params['id'])
+        params => {
+          if (undefined !== params['id']) {
+            this.find(+params['id'])
+          } else {
+            this.getAllProducts();
+          }
+        }
       );
   }
 
@@ -34,7 +40,17 @@ export class CategoryDetailComponent implements OnInit {
       .subscribe((category:any[]) => this.category = category);
 
     this.http.get('/api/categories/' + id + '/products')
-      .subscribe((products:any[]) => this.products = products);
+      .subscribe((result:any) => this.products = result.data);
+
+  }
+
+
+  getAllProducts() {
+    this.category = null;
+    this.products = null;
+
+    this.http.get('/api/products')
+      .subscribe((result:any) => this.products = result.data);
   }
 
 }

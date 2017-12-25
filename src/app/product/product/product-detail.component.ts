@@ -29,7 +29,7 @@ export class ProductDetailComponent implements OnInit {
     this.product = null;
 
     this.http.get('/api/products/' + id)
-      .subscribe((product:any[]) => this.product = product);
+      .subscribe((result:any) => this.product = result.data);
   }
 
 }

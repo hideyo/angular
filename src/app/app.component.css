@@ -1,0 +1,11 @@
+.product-grid {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.product_slider {
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden !important;
+	height: 340px;
+}

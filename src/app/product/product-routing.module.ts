@@ -13,6 +13,11 @@ const routes: Routes = [
     component: ProductComponent, 
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        component: ProductDetailComponent
+      },
+      {
         path: ':id',
         component: ProductDetailComponent,
       }
@@ -22,6 +27,11 @@ const routes: Routes = [
     path: 'categories', 
     component: CategoryComponent, 
     children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: CategoryDetailComponent
+      },
       {
         path: ':id',
         component: CategoryDetailComponent,
