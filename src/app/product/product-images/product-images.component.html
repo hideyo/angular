@@ -1,0 +1,23 @@
+<div class="single_product_pics">
+	<div class="row">
+		<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
+			<div class="single_product_thumbnails">
+				<ul>
+					<li *ngFor="let image of images" [class.active]="image.active">
+						<img
+							src="{{ image.url }}"
+							alt=""
+							(click)="select(image)">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-lg-9 image_col order-lg-2 order-1">
+			<div class="single_product_image">
+				<div class="single_product_image_background">
+					<img src="{{ currentFile }}">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-category-detail',
@@ -49,7 +49,15 @@ export class CategoryDetailComponent implements OnInit {
     this.category = null;
     this.products = null;
 
-    this.http.get('/api/products')
+    let params = new HttpParams({
+      fromObject: {
+        per_page: '6'
+      }
+    });
+
+    this.http.get('/api/products', {
+      params: params
+    })
       .subscribe((result:any) => this.products = result.data);
   }
 

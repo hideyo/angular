@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 
-
-import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './/app-routing.module';
 
 import { ProductModule } from './product/product.module';
-import { AppRoutingModule } from './/app-routing.module';
+
+import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
@@ -17,13 +17,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    CoreModule,
 
     ProductModule,
 
     AppRoutingModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'nl' } ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
